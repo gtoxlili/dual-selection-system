@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "师生双选系统", "师生双选系统\师生双选系统.csproj", "{B1F6C051-1FC6-448F-A235-B5DD5319BEDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{2AA0E33F-95A4-47CF-B57F-58B125DF5167}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{FA4D29B3-A25F-4355-9EE5-674BBF52B8C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{821AAFC9-BB3B-4EE2-9034-D3508A1F4C10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{99D5B241-77F1-42D8-B242-5C69BDF15F18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{C8C2EACD-3684-4C57-AE76-6FF3B43883CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomFont", "CustomFont\CustomFont.csproj", "{FC35589C-9317-486F-A16F-9079CC95E976}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1F6C051-1FC6-448F-A235-B5DD5319BEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1F6C051-1FC6-448F-A235-B5DD5319BEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1F6C051-1FC6-448F-A235-B5DD5319BEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1F6C051-1FC6-448F-A235-B5DD5319BEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA0E33F-95A4-47CF-B57F-58B125DF5167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA0E33F-95A4-47CF-B57F-58B125DF5167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA0E33F-95A4-47CF-B57F-58B125DF5167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA0E33F-95A4-47CF-B57F-58B125DF5167}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA4D29B3-A25F-4355-9EE5-674BBF52B8C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA4D29B3-A25F-4355-9EE5-674BBF52B8C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA4D29B3-A25F-4355-9EE5-674BBF52B8C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA4D29B3-A25F-4355-9EE5-674BBF52B8C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{821AAFC9-BB3B-4EE2-9034-D3508A1F4C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{821AAFC9-BB3B-4EE2-9034-D3508A1F4C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{821AAFC9-BB3B-4EE2-9034-D3508A1F4C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{821AAFC9-BB3B-4EE2-9034-D3508A1F4C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D5B241-77F1-42D8-B242-5C69BDF15F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D5B241-77F1-42D8-B242-5C69BDF15F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D5B241-77F1-42D8-B242-5C69BDF15F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D5B241-77F1-42D8-B242-5C69BDF15F18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8C2EACD-3684-4C57-AE76-6FF3B43883CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8C2EACD-3684-4C57-AE76-6FF3B43883CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8C2EACD-3684-4C57-AE76-6FF3B43883CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8C2EACD-3684-4C57-AE76-6FF3B43883CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC35589C-9317-486F-A16F-9079CC95E976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC35589C-9317-486F-A16F-9079CC95E976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC35589C-9317-486F-A16F-9079CC95E976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC35589C-9317-486F-A16F-9079CC95E976}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8F5E7D1-3485-4B28-B481-7D04AC68D1A5}
+	EndGlobalSection
+EndGlobal

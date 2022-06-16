@@ -1,0 +1,12 @@
+packages
+.vs
+*.suo
+*.user
+_ReSharper.*
+*/**/obj/Debug
+*/**/obj/Release
+*.exe
+*.pdb
+*.manifest
+*.cache
+*.dll

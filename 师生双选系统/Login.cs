@@ -138,6 +138,12 @@ namespace 师生双选系统
                 return;
             }
 
+            if (result == null)
+            {
+                Message.ShowError(@"账号或密码错误！", minWidth: 42);
+                return;
+            }
+
             SaveInfoFile(Application.StartupPath + "//UserInfo.xml");
             func.EntryInfo(result, typeof(stu_base_info));
             _isLogin = true;

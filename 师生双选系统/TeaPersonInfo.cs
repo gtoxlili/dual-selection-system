@@ -22,6 +22,21 @@ namespace 师生双选系统
             InitializeComponent();
             comboBox6.SelectedItem = GetFontFamilies();
             placeholder = comboBox6.SelectedItem.ToString().Equals("更纱黑体") ? @"    " : @"       ";
+
+            textBox3.MouseEnter += delegate { textBox3.BackColor = panel1.BackColor = Color.FromArgb(240, 240, 240); };
+            panel1.MouseEnter += delegate { textBox3.BackColor = panel1.BackColor = Color.FromArgb(240, 240, 240); };
+            panel1.MouseLeave += delegate
+            {
+                if (textBox3.Focused)
+                    return;
+                textBox3.BackColor = panel1.BackColor = Color.White;
+            };
+            textBox3.MouseLeave += delegate
+            {
+                if (textBox3.Focused)
+                    return;
+                textBox3.BackColor = panel1.BackColor = Color.White;
+            };
         }
 
 

@@ -409,6 +409,7 @@
   <ItemGroup>
     <Content Include="fav.ico" />
     <Content Include="FodyWeavers.xml" />
+    <None Include="Resources\关闭.png" />
     <None Include="Resources\print.png" />
     <None Include="Resources\printSee.png" />
     <None Include="Resources\printChoose.png" />

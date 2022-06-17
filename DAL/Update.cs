@@ -364,5 +364,18 @@ namespace DAL
 
             return true;
         }
+
+        public bool DispenseDelAudit(int gid)
+        {
+            try
+            {
+                SqLiteHelper.ExecuteNonQuery("delete from autodispense_tmp where g_id = "+gid);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -474,18 +474,22 @@ namespace 师生双选系统
             i13.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
             i13.Click += (sender, e) =>
             {
-                DataRow[] rowTeacher = _allDt.Tables[2].Select("res_count < 5");
                 string tidTmp = _allDt.Tables[1].Select("g_id=" + values["g_id"])[0]["t_id"].ToString();
+                if (tidTmp == "")
+                {
+                    tidTmp = "0";
+                }
+                DataRow[] rowTeacher = _allDt.Tables[2].Select($"res_count < 5 and t_id <> {tidTmp}");
                 string nowtea = "";
                 string[] teaNameArr;
-                if (tidTmp != "")
+                if (tidTmp != "0")
                 {
                     nowtea = _allDt.Tables[2]
                         .Select("t_id=" + _allDt.Tables[1].Select("g_id=" + values["g_id"])[0]["t_id"])[0]["t_name"]
                         .ToString();
 
                     teaNameArr = new string[rowTeacher.Length + 1];
-                    for (int i = 1; i < rowTeacher.Length + 1; i++) teaNameArr[i] = rowTeacher[i]["t_name"].ToString();
+                    for (int i = 1; i < rowTeacher.Length + 1; i++) teaNameArr[i] = rowTeacher[i-1]["t_name"].ToString();
                     teaNameArr[0] = nowtea;
                 }
                 else
@@ -528,7 +532,7 @@ namespace 师生双选系统
                     DataRow myGroup = _allDt.Tables[1].Select("g_id=" + gId)[0];
                     myGroup["t_id"] = newtea["t_id"];
 
-                    if (tidTmp != "")
+                    if (tidTmp != "0")
                     {
                         DataRow oldtea = _allDt.Tables[2].Select("t_id=" + nowtea)[0];
 

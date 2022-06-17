@@ -13,7 +13,7 @@ namespace 师生双选系统
 {
     public sealed partial class ChooseGroup : Form
     {
-        private const int PageSize = 6;
+        private const int PageSize = 8;
         private readonly Action<List<group_info>> _changeFatherInfo;
         private readonly Action _changeFatherTab;
         private readonly Read<tea_choose> _chooseFunc = new Read<tea_choose>();

@@ -661,7 +661,8 @@ namespace 师生双选系统
             Label i3 = new Label();
             Label i4 = new Label();
             Label i5 = new Label();
-
+            Label i6 = new Label();
+            
             void Ml(object sender, EventArgs e)
             {
                 p.BackColor = Color.White;
@@ -740,13 +741,35 @@ namespace 师生双选系统
                 panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
             };
 
+            i6.Cursor = Cursors.Hand;
+            i6.BackColor = Color.Transparent;
+            i6.Size = new Size(16, 16);
+            i6.Location = new Point(320, 10);
+            i6.Image = ReturnRandomColor(Convert.ToInt32(values.score), Resources.关闭);
+            i6.ImageAlign = ContentAlignment.MiddleCenter;
+            i6.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
+            i6.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
+            i6.Click += (sender, e) =>
+            {
+                if (new Update().DispenseDelAudit(values.g_id))
+                    Message.ShowSuccess("删除成功");
+                
+                _autodispenseList =
+                    _autodispenseFunc.GetDbContent(
+                        $@"state = 0 limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
+
+                Tool.Close(panel1);
+                panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
+                
+            };
 
             p.Controls.Add(i1);
             p.Controls.Add(i2);
             p.Controls.Add(i3);
             p.Controls.Add(i4);
             p.Controls.Add(i5);
-
+            p.Controls.Add(i6);
+            
             p.Controls.Add(divider);
 
             return p;

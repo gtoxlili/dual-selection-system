@@ -105,5 +105,10 @@ namespace BLL
         {
             return _up.DispenseOkAudit(tid);
         }
+
+        public bool DispenseDelAudit(int tid)
+        {
+            return _up.DispenseDelAudit(tid);
+        }
     }
 }

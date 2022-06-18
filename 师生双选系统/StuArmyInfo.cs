@@ -26,7 +26,7 @@ namespace 师生双选系统
 
         private void StuArmyInfo_Load(object sender, EventArgs e)
         {
-            if (stu_base_info.role.Equals(2)) button2.Visible = false;
+            if (stu_info.Instance.role.Equals(2)) button2.Visible = false;
 
             _gradeInfo = new Panel
             {
@@ -35,9 +35,9 @@ namespace 师生双选系统
             };
 
 
-            textBox2.Text = _gbll.GetOnlyContent("g_id=" + stu_base_info.g_id, "g_name").ToString();
+            textBox2.Text = _gbll.GetOnlyContent("g_id=" + stu_info.Instance.g_id, "g_name").ToString();
 
-            List<stu_info> memberList = _sbll.GetDbContent("g_id=" + stu_base_info.g_id + " ORDER BY role");
+            List<stu_info> memberList = _sbll.GetDbContent("g_id=" + stu_info.Instance.g_id + " ORDER BY role");
 
             _headerInfo = memberList[0];
             for (int i = 0; i < memberList.Count; i++) AddList(i, memberList[i], _gradeInfo);

@@ -29,12 +29,12 @@ namespace 师生双选系统
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            Message.ShowInfo($@"管理员 {admin_base_config.admID}, 欢迎回来!", this);
+            Message.ShowInfo($@"管理员 {admin_config.Instance.admID}, 欢迎回来!", this);
 
             _nowRouter = button2;
             RouterChange(new AdmUserInfo());
 
-            label18.Text = @"工号：" + admin_base_config.admID;
+            label18.Text = @"工号：" + admin_config.Instance.admID;
         }
 
 

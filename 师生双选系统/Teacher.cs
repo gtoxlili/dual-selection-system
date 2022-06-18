@@ -32,12 +32,12 @@ namespace 师生双选系统
 
         private void Teacher_Load(object sender, EventArgs e)
         {
-            Message.ShowInfo($@"{tea_base_info.t_name}老师, 欢迎回来!", this);
+            Message.ShowInfo($@"{tea_info.Instance.t_name}老师, 欢迎回来!", this);
 
             _nowRouter = button2;
             RouterChange(new TeaPersonInfo());
 
-            label18.Text = tea_base_info.t_name;
+            label18.Text = tea_info.Instance.t_name;
         }
 
 
@@ -90,7 +90,7 @@ namespace 师生双选系统
 
         private bool CheckChoose<T>(object sender) where T : Form, new()
         {
-            bool haveChoose = (int)(long)_checkChoose.GetOnlyContent("tid=" + tea_base_info.t_id, "count(*)") != 0;
+            bool haveChoose = (int)(long)_checkChoose.GetOnlyContent("tid=" + tea_info.Instance.t_id, "count(*)") != 0;
             if (haveChoose) return true;
 
             DialogResult dr = MessageBox.Show(@"您还尚未选择任何队伍，是否立即选择？", @"Not Group", MessageBoxButtons.OKCancel);

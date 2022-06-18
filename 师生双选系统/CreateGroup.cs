@@ -32,7 +32,7 @@ namespace 师生双选系统
             List<tea_info> Getseletedtea()
             {
                 string term = new Read<group_info>()
-                    .GetOnlyContent($"g_id={stu_base_info.g_id}", "('('||c1||','||c2||','||c3||')')").ToString();
+                    .GetOnlyContent($"g_id={stu_info.Instance.g_id}", "('('||c1||','||c2||','||c3||')')").ToString();
                 return _teaFunc.GetDbContent($"t_id in {term}");
             }
 
@@ -77,7 +77,7 @@ namespace 师生双选系统
             _stuUnSelectList =
                 _stuFunc.GetDbContent(
                     $@"role !=1 and g_id is null limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
-            _stuSelectedList = _stuFunc.GetDbContent("role != 1 and g_id=" + stu_base_info.g_id);
+            _stuSelectedList = _stuFunc.GetDbContent("role != 1 and g_id=" + stu_info.Instance.g_id);
             InitializeComponent();
             Text = @"修改小组";
         }
@@ -155,7 +155,7 @@ namespace 师生双选系统
                 {
                     _stuUnSelectList = _stuFunc.GetDbContent(comboBox1.SelectedIndex, comboBox2.SelectedIndex,
                         textBox1.Text,
-                        $@"role !=1 and (g_id is null  or g_id ={stu_base_info.g_id}) limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
+                        $@"role !=1 and (g_id is null  or g_id ={stu_info.Instance.g_id}) limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
 
                     List<stu_info> unSelectListTemp = new List<stu_info>(_stuUnSelectList);
 
@@ -701,12 +701,12 @@ namespace 师生双选系统
             else
             {
                 _unSelectCount = (int)(long)_stuFunc.GetConditionContent(
-                    $"role !=1 and (g_id is null or g_id ={stu_base_info.g_id})", "count(*)", comboBox1.SelectedIndex,
+                    $"role !=1 and (g_id is null or g_id ={stu_info.Instance.g_id})", "count(*)", comboBox1.SelectedIndex,
                     comboBox2.SelectedIndex, textBox1.Text);
 
                 _stuUnSelectList = _stuFunc.GetDbContent(comboBox1.SelectedIndex, comboBox2.SelectedIndex,
                     textBox1.Text,
-                    $@"role != 1 and (g_id is null or g_id ={stu_base_info.g_id}) limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
+                    $@"role != 1 and (g_id is null or g_id ={stu_info.Instance.g_id}) limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
 
                 List<stu_info> unSelectListTemp = new List<stu_info>(_stuUnSelectList);
 
@@ -742,7 +742,7 @@ namespace 师生双选系统
 
                 int[] tidArr = new int[3];
                 for (int i = 0; i < _teaSelectedList.Count; i++) tidArr[i] = _teaSelectedList[i].t_id;
-                if (_up.UpdateChooseTeaInfo(tidArr, stu_base_info.g_id.ToString()))
+                if (_up.UpdateChooseTeaInfo(tidArr, stu_info.Instance.g_id.ToString()))
                 {
                     MessageBox.Show(@"提交成功！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
@@ -769,11 +769,11 @@ namespace 师生双选系统
                 if (MessageBox.Show(@"确定要提交吗？", @"提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) !=
                     DialogResult.OK) return;
 
-                string gId = _changeFatherTab != null ? _up.CreateGroup() : stu_base_info.g_id.ToString();
+                string gId = _changeFatherTab != null ? _up.CreateGroup() : stu_info.Instance.g_id.ToString();
 
                 int[] sidArr = new int[_stuSelectedList.Count + 1];
                 for (int i = 0; i < _stuSelectedList.Count; i++) sidArr[i] = _stuSelectedList[i].s_id;
-                sidArr[_stuSelectedList.Count] = stu_base_info.s_id;
+                sidArr[_stuSelectedList.Count] = stu_info.Instance.s_id;
 
                 if (_up.UpdateGidInfo(sidArr, gId))
                 {

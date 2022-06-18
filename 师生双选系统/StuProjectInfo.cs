@@ -21,7 +21,7 @@ namespace 师生双选系统
 
         private void StuProjectInfo_Load(object sender, EventArgs e)
         {
-            group_info g = _func.GetEntityValue("g_id=" + stu_base_info.g_id);
+            group_info g = _func.GetEntityValue("g_id=" + stu_info.Instance.g_id);
 
             textBox1.Text = g.project_name;
             textBox2.Text = g.project_info;
@@ -104,7 +104,7 @@ namespace 师生双选系统
                 DialogResult.OK) return;
 
 
-            if (_up.UpdateGroupInfo(stu_base_info.g_id.ToString(), textBox1.Text, textBox2.Text))
+            if (_up.UpdateGroupInfo(stu_info.Instance.g_id.ToString(), textBox1.Text, textBox2.Text))
             {
                 _infoSummary = nowSummary;
                 Message.ShowSuccess(@"提交成功！");

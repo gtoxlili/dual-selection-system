@@ -41,16 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admin_base_config.cs" />
     <Compile Include="admin_config.cs" />
     <Compile Include="autodispense_tmp.cs" />
     <Compile Include="sqlite_sequence.cs" />
-    <Compile Include="tea_base_info.cs" />
     <Compile Include="tea_info.cs" />
     <Compile Include="tea_choose.cs" />
     <Compile Include="stu_info.cs" />
     <Compile Include="group_info.cs" />
-    <Compile Include="stu_base_info.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -40,7 +40,7 @@ namespace 师生双选系统
             _changeFatherInfo = changeFatherInfo;
             _unSelectCount = (int)(long)_groupFunc.GetOnlyContent("", "COUNT(*)");
             _groupUnSelectList = _groupFunc.GetGroupInfo($@"1=1 limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
-            tea_choose groupArr = _chooseFunc.GetEntityValue("tid=" + tea_base_info.t_id);
+            tea_choose groupArr = _chooseFunc.GetEntityValue("tid=" + tea_info.Instance.t_id);
             if (groupArr == null)
             {
                 _groupSelectedList = new List<group_info>();
@@ -644,7 +644,7 @@ namespace 师生双选系统
             //insert or replace into tea_choose(tid,c1,c2,c3,c4,c5) values (201900102,201900102,201900102,201900102,201900102,201900104);
             int[] gidArr = new int[5];
             for (int i = 0; i < _groupSelectedList.Count; i++) gidArr[i] = _groupSelectedList[i].g_id;
-            if (_up.UpdateChooseGroupInfo(gidArr, tea_base_info.t_id.ToString()))
+            if (_up.UpdateChooseGroupInfo(gidArr, tea_info.Instance.t_id.ToString()))
             {
                 MessageBox.Show(@"提交成功！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (_changeFatherTab != null)

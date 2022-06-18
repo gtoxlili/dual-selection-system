@@ -42,13 +42,13 @@ namespace 师生双选系统
 
         private void TeaPersonInfo_Load(object sender, EventArgs e)
         {
-            label5.Text = tea_base_info.t_id + placeholder;
-            label7.Text = tea_base_info.t_name + placeholder;
-            label9.Text = ConfigurationManager.AppSettings["Speciality"].Split(',')[stu_base_info.major_id + 1] + placeholder;
-            label11.Text = tea_base_info.sex + placeholder;
-            label13.Text = tea_base_info.grade + placeholder;
+            label5.Text = tea_info.Instance.t_id + placeholder;
+            label7.Text = tea_info.Instance.t_name + placeholder;
+            label9.Text = ConfigurationManager.AppSettings["Speciality"].Split(',')[stu_info.Instance.major_id + 1] + placeholder;
+            label11.Text = tea_info.Instance.sex + placeholder;
+            label13.Text = tea_info.Instance.grade + placeholder;
             textBox2.Text = @"●●●●●●";
-            textBox3.Text = tea_base_info.direction;
+            textBox3.Text = tea_info.Instance.direction;
             if (!textBox3.Text.Equals(""))
                 label21.Visible = false;
         }
@@ -68,9 +68,9 @@ namespace 师生双选系统
                     @"提示",
                     MessageBoxButtons.YesNo);
                 if (drc != DialogResult.Yes) return;
-                tea_base_info.pwd = _rd.GetMd5(textBox2.Text, tea_base_info.t_no);
+                tea_info.Instance.pwd = _rd.GetMd5(textBox2.Text, tea_info.Instance.t_no);
                 textBox2.ReadOnly = true;
-                if (_up.UpdateTeaInfo(tea_base_info.pwd, "pwd"))
+                if (_up.UpdateTeaInfo(tea_info.Instance.pwd, "pwd"))
                     Message.ShowSuccess(@"修改成功！");
                 else
                     Message.ShowError(@"修改失败！");
@@ -144,8 +144,8 @@ namespace 师生双选系统
                 }
 
                 textBox3.ReadOnly = true;
-                tea_base_info.direction = textBox3.Text;
-                if (_up.UpdateTeaInfo(tea_base_info.direction, "direction"))
+                tea_info.Instance.direction = textBox3.Text;
+                if (_up.UpdateTeaInfo(tea_info.Instance.direction, "direction"))
                     Message.ShowSuccess(@"修改成功！");
                 else
                     Message.ShowError(@"修改失败！");

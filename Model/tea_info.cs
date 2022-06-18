@@ -2,27 +2,43 @@
 {
     public class tea_info
     {
-        ///<summary></summary>
         public int major_id { get; set; }
-
-        ///<summary></summary>
+        
         public string sex { get; set; }
-
-        ///<summary></summary>
+        
         public int grade { get; set; }
-
-        ///<summary></summary>
+        
         public string t_name { get; set; }
-
-        ///<summary></summary>
+        
         public string pwd { get; set; }
-
-        ///<summary></summary>
+        
         public int t_id { get; set; }
-
-        ///<summary></summary>
+        
         public int t_no { get; set; }
 
         public string direction { get; set; }
+
+        // 单例
+        private volatile static tea_info instance;
+        private static readonly object padlock = new object();
+
+        public static tea_info Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (padlock)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new tea_info();
+                        }
+                    }
+                }
+                return instance;
+            }
+        }
     }
+
 }

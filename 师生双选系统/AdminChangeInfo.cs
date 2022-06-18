@@ -58,14 +58,14 @@ namespace 师生双选系统
                     Text = @"新增学生";
                     CreateNewStuFrom(new stu_info
                     {
-                        pwd = admin_base_config.defaultPwd
+                        pwd = admin_config.Instance.defaultPwd
                     }, Convert.ToInt32(new Read<sqlite_sequence>().GetOnlyContent("name = 'stu_info'", "seq")) + 1); ;
                     break;
                 case 1:
                     Text = @"新增教师";
                     CreateNewTeaFrom(new tea_info
                     {
-                        pwd = admin_base_config.defaultPwd
+                        pwd = admin_config.Instance.defaultPwd
                     }, Convert.ToInt32(new Read<sqlite_sequence>().GetOnlyContent("name = 'tea_info'", "seq")) + 1);
                     break;
             }
@@ -120,7 +120,7 @@ namespace 师生双选系统
                 Controls.Add(AddcomboBox("身份", "role", new[] { "未选", "队长", "队员" },
                     new[] { "未选", "队长", "队员" }[values.role], callback: () =>
                     {
-                        stu_base_info.s_id = values.s_id;
+                        stu_info.Instance.s_id = values.s_id;
                         new Update().UpdateStuInfo(_domains["role"], "role");
                         Controls.Clear();
                         _paddingTop = 50;
@@ -182,8 +182,8 @@ namespace 师生双选系统
                     case 1:
                         Controls.Add(AddBtn("修改队伍人员", (_, __) =>
                         {
-                            stu_base_info.s_id = values.s_id;
-                            stu_base_info.g_id = values.g_id;
+                            stu_info.Instance.s_id = values.s_id;
+                            stu_info.Instance.g_id = values.g_id;
                             new CreateGroup(memberList => { }).Show();
                         }));
                         break;
@@ -191,8 +191,8 @@ namespace 师生双选系统
 
                 Controls.Add(AddBtn("修改所选导师", (_, __) =>
                 {
-                    stu_base_info.s_id = values.s_id;
-                    stu_base_info.g_id = values.g_id;
+                    stu_info.Instance.s_id = values.s_id;
+                    stu_info.Instance.g_id = values.g_id;
                     new CreateGroup().Show();
                 }));
                 Controls.Add(AddBtn("解散所在队伍", (_, __) =>
@@ -228,9 +228,9 @@ namespace 师生双选系统
                 if (values.role.Equals(1))
                     Controls.Add(AddBtn("新建队伍", (_, __) =>
                     {
-                        stu_base_info.s_id = values.s_id;
-                        stu_base_info.major_id = values.major_id;
-                        stu_base_info.grade = values.grade;
+                        stu_info.Instance.s_id = values.s_id;
+                        stu_info.Instance.major_id = values.major_id;
+                        stu_info.Instance.grade = values.grade;
                         new CreateGroup(() =>
                         {
                             Tool.Close(this);
@@ -245,8 +245,8 @@ namespace 师生双选系统
             {
                 Update up = new Update();
                 Read<stu_info> read = new Read<stu_info>();
-                stu_base_info.s_id = values.s_id;
-                stu_base_info.g_id = values.g_id;
+                stu_info.Instance.s_id = values.s_id;
+                stu_info.Instance.g_id = values.g_id;
 
                 foreach (KeyValuePair<string, string> item in _domains)
                 {
@@ -318,7 +318,7 @@ namespace 师生双选系统
 
             Controls.Add(AddBtn("修改所选队伍", (_, __) =>
             {
-                tea_base_info.t_id = values.t_id;
+                tea_info.Instance.t_id = values.t_id;
                 new ChooseGroup(memberList => { }).Show();
             }));
 
@@ -326,7 +326,7 @@ namespace 师生双选系统
             {
                 Update up = new Update();
                 Read<tea_info> read = new Read<tea_info>();
-                tea_base_info.t_id = values.t_id;
+                tea_info.Instance.t_id = values.t_id;
 
                 foreach (KeyValuePair<string, string> item in _domains)
                 {
@@ -389,22 +389,22 @@ namespace 师生双选系统
 
             Controls.Add(AddBtn("修改所选导师", (_, __) =>
             {
-                stu_base_info.g_id = values.g_id;
+                stu_info.Instance.g_id = values.g_id;
                 new CreateGroup().Show();
             }));
 
             Controls.Add(AddBtn("修改队伍人员", (_, __) =>
             {
-                stu_base_info.s_id =
+                stu_info.Instance.s_id =
                     Convert.ToInt32(new Read<stu_info>().GetOnlyContent("role = 1 and g_id=" + values.g_id, "s_id"));
-                stu_base_info.g_id = values.g_id;
+                stu_info.Instance.g_id = values.g_id;
                 new CreateGroup(memberList => { }).Show();
             }));
 
             Controls.Add(AddBtn("确认修改", (_, __) =>
             {
                 Update up = new Update();
-                stu_base_info.g_id = values.g_id;
+                stu_info.Instance.g_id = values.g_id;
 
                 foreach (KeyValuePair<string, string> item in _domains)
                 {
@@ -449,7 +449,7 @@ namespace 师生双选系统
         public void CreateNewStuFrom(stu_info stuinfo, int index, bool isNewAdd = true,
             Action<stu_info> action = default)
         {
-            stu_base_info.s_no = index;
+            stu_info.Instance.s_no = index;
 
             Controls.Add(AddInput("姓名", "s_name", stuinfo.s_name));
             Controls.Add(AddcomboBox("性别", "sex", new[] { "男", "女" }, stuinfo.sex, isitems: true));
@@ -538,7 +538,7 @@ namespace 师生双选系统
         public void CreateNewTeaFrom(tea_info teainfo, int index, bool isNewAdd = true,
             Action<tea_info> action = default)
         {
-            tea_base_info.t_no = index;
+            tea_info.Instance.t_no = index;
 
             Controls.Add(AddInput("姓名", "t_name", teainfo.t_name));
 

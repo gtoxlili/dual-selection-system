@@ -29,12 +29,12 @@ namespace 师生双选系统
 
         private void Student_Load(object sender, EventArgs e)
         {
-            Message.ShowInfo($@"{stu_base_info.s_name}同学, 欢迎回来!", this);
+            Message.ShowInfo($@"{stu_info.Instance.s_name}同学, 欢迎回来!", this);
 
             _nowRouter = button2;
             RouterChange(new StuPersonInfo());
 
-            label18.Text = stu_base_info.s_name;
+            label18.Text = stu_info.Instance.s_name;
         }
 
 
@@ -96,8 +96,8 @@ namespace 师生双选系统
 
         private bool CheckGroup<T>(object sender) where T : Form, new()
         {
-            if (!stu_base_info.g_id.Equals(0)) return true;
-            switch (stu_base_info.role)
+            if (!stu_info.Instance.g_id.Equals(0)) return true;
+            switch (stu_info.Instance.role)
             {
                 case 1:
                     {

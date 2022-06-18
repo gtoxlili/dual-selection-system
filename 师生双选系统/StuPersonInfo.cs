@@ -26,24 +26,24 @@ namespace 师生双选系统
 
         private void StuPersonInfo_Load(object sender, EventArgs e)
         {
-            label5.Text = stu_base_info.s_id + placeholder;
-            comboBox1.SelectedIndex = stu_base_info.role;
+            label5.Text = stu_info.Instance.s_id + placeholder;
+            comboBox1.SelectedIndex = stu_info.Instance.role;
 
-            if (stu_base_info.role != 0)
+            if (stu_info.Instance.role != 0)
                 label21.Visible = false;
 
-            if (!stu_base_info.g_id.Equals(0))
+            if (!stu_info.Instance.g_id.Equals(0))
             {
                 label16.Visible = true;
-                label16.Text = new[] { "未选", "队长", "队员" }[stu_base_info.role] + placeholder;
+                label16.Text = new[] { "未选", "队长", "队员" }[stu_info.Instance.role] + placeholder;
                 comboBox1.Visible = false;
             }
 
-            label7.Text = stu_base_info.s_name + placeholder;
-            label9.Text = ConfigurationManager.AppSettings["Speciality"].Split(',')[stu_base_info.major_id + 1] + placeholder;
-            label11.Text = stu_base_info.sex + placeholder;
-            label13.Text = stu_base_info.grade + placeholder;
-            label22.Text = (stu_base_info.g_id.Equals(0) ? "null" : stu_base_info.g_id.ToString()) + placeholder;
+            label7.Text = stu_info.Instance.s_name + placeholder;
+            label9.Text = ConfigurationManager.AppSettings["Speciality"].Split(',')[stu_info.Instance.major_id + 1] + placeholder;
+            label11.Text = stu_info.Instance.sex + placeholder;
+            label13.Text = stu_info.Instance.grade + placeholder;
+            label22.Text = (stu_info.Instance.g_id.Equals(0) ? "null" : stu_info.Instance.g_id.ToString()) + placeholder;
             textBox2.Text = @"●●●●●●";
         }
 
@@ -55,9 +55,9 @@ namespace 师生双选系统
                     @"提示",
                     MessageBoxButtons.YesNo);
                 if (drc != DialogResult.Yes) return;
-                stu_base_info.pwd = _rd.GetMd5(textBox2.Text);
+                stu_info.Instance.pwd = _rd.GetMd5(textBox2.Text);
                 textBox2.ReadOnly = true;
-                if (_up.UpdateStuInfo(stu_base_info.pwd, "pwd"))
+                if (_up.UpdateStuInfo(stu_info.Instance.pwd, "pwd"))
                     Message.ShowSuccess(@"修改成功！");
                 else
                     Message.ShowError(@"修改失败！");
@@ -80,7 +80,7 @@ namespace 师生双选系统
             ComboBox send = (ComboBox)sender;
 
             label21.Visible = send.SelectedIndex == 0;
-            stu_base_info.role = send.SelectedIndex;
+            stu_info.Instance.role = send.SelectedIndex;
             if (_up.UpdateStuInfo(send.SelectedIndex.ToString(), "role"))
                 Message.ShowSuccess(@"修改成功！");
             else

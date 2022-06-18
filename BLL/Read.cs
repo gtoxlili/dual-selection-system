@@ -78,7 +78,7 @@ namespace BLL
             {
                 dt.Rows[i][etr + "_no"] = seq + i;
                 if (!havePwd)
-                    dt.Rows[i]["pwd"] = GetMd5(admin_base_config.defaultPwd, seq + i);
+                    dt.Rows[i]["pwd"] = GetMd5(admin_config.Instance.defaultPwd, seq + i);
                 else
                     dt.Rows[i]["pwd"] = GetMd5(dt.Rows[i]["pwd"].ToString(), seq + i);
                 if (!haveRole)
@@ -144,26 +144,26 @@ namespace BLL
             return _fi.GetConditionContent(typeof(T).Name.ToLower(), extra, field, grade, majorId, str);
         }
 
-        public void EntryInfo(T info, Type y)
+        public void EntryInfo(T info)
         {
             PropertyInfo[] propertys = info.GetType().GetProperties();
+            T instance = (T)info.GetType().GetProperty("Instance").GetValue(info, null);
 
             foreach (PropertyInfo p in propertys)
             {
                 string tmpName = p.Name;
+                if (tmpName == "Instance")
+                    continue;
                 object tmpValue = p.GetValue(info, null);
 
-                PropertyInfo pi = y.GetProperty(tmpName);
-
-                if (pi != null)
-                    pi.SetValue(y, tmpValue, null);
+                p.SetValue(instance, tmpValue, null);
             }
         }
 
 
         public string GetMd5(string str)
         {
-            return GetMd5(str, stu_base_info.s_no);
+            return GetMd5(str, stu_info.Instance.s_no);
         }
 
         public string GetMd5(string str, int salt)

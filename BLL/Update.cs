@@ -8,12 +8,12 @@ namespace BLL
 
         public bool UpdateStuInfo(string newData, string field)
         {
-            return _up.UpStudata(stu_base_info.s_id, newData, field);
+            return _up.UpStudata(stu_info.Instance.s_id, newData, field);
         }
 
         public bool UpdateTeaInfo(string newData, string field)
         {
-            return _up.UpTeadata(tea_base_info.t_id, newData, field);
+            return _up.UpTeadata(tea_info.Instance.t_id, newData, field);
         }
 
         public bool CreateStuPerson(stu_info stuInfo)
@@ -81,19 +81,19 @@ namespace BLL
 
         public string CreateGroup()
         {
-            int gid = _up.CreateGroup(stu_base_info.major_id, stu_base_info.grade);
-            stu_base_info.g_id = gid;
+            int gid = _up.CreateGroup(stu_info.Instance.major_id, stu_info.Instance.grade);
+            stu_info.Instance.g_id = gid;
             return gid.ToString();
         }
 
         public bool UpdateGroupdata(string value, string field)
         {
-            return _up.UpdateGroupdata(stu_base_info.g_id, value, field);
+            return _up.UpdateGroupdata(stu_info.Instance.g_id, value, field);
         }
 
         public bool UpdateSettingInfo(string newData, string field)
         {
-            return _up.UpSettingInfo(admin_base_config.admID, newData, field);
+            return _up.UpSettingInfo(admin_config.Instance.admID, newData, field);
         }
 
         public bool AddRecordtoAutoDisTmp(autodispense_tmp value)

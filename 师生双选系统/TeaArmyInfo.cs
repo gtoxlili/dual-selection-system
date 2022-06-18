@@ -20,7 +20,7 @@ namespace 师生双选系统
 
         public TeaArmyInfo()
         {
-            tea_choose grouparr = _chooseFunc.GetEntityValue("tid=" + tea_base_info.t_id);
+            tea_choose grouparr = _chooseFunc.GetEntityValue("tid=" + tea_info.Instance.t_id);
             _groupArr = _func.GetGroupInfo(
                 $@"g_id in ({grouparr.c1},{grouparr.c2},{grouparr.c3},{grouparr.c4},{grouparr.c5})");
 

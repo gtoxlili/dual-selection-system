@@ -36,20 +36,20 @@ namespace 师生双选系统
             comboBox9.SelectedIndex = 0;
             comboBox8.SelectedIndex = 0;
 
-            textBox2.Text = admin_base_config.admUser;
-            textBox1.Text = admin_base_config.admPwd;
+            textBox2.Text = admin_config.Instance.admUser;
+            textBox1.Text = admin_config.Instance.admPwd;
 
-            comboBox1.SelectedIndex = admin_base_config.stuGroupNum - 1;
-            comboBox2.SelectedIndex = admin_base_config.stuChooseNum - 1;
+            comboBox1.SelectedIndex = admin_config.Instance.stuGroupNum - 1;
+            comboBox2.SelectedIndex = admin_config.Instance.stuChooseNum - 1;
 
-            dateTimePicker1.Value = Convert.ToDateTime(admin_base_config.stuCloseTime);
+            dateTimePicker1.Value = Convert.ToDateTime(admin_config.Instance.stuCloseTime);
 
-            comboBox3.SelectedIndex = admin_base_config.teaHaveNum - 1;
-            comboBox4.SelectedIndex = admin_base_config.teaChooseNum - 1;
+            comboBox3.SelectedIndex = admin_config.Instance.teaHaveNum - 1;
+            comboBox4.SelectedIndex = admin_config.Instance.teaChooseNum - 1;
 
-            dateTimePicker2.Value = Convert.ToDateTime(admin_base_config.teaCloseTime);
+            dateTimePicker2.Value = Convert.ToDateTime(admin_config.Instance.teaCloseTime);
 
-            textBox4.Text = admin_base_config.defaultPwd;
+            textBox4.Text = admin_config.Instance.defaultPwd;
             comboBox6.SelectedItem = GetFontFamilies();
 
             _infoSummary =
@@ -92,7 +92,7 @@ namespace 师生双选系统
                 if (_up.UpdateSettingInfo(textBox2.Text, "admUser"))
                 {
                     _infoSummary = nowSummary;
-                    admin_base_config.admUser = textBox2.Text;
+                    admin_config.Instance.admUser = textBox2.Text;
                     Message.ShowSuccess(@"修改成功！");
                 }
                 else
@@ -142,7 +142,7 @@ namespace 师生双选系统
                 if (_up.UpdateSettingInfo(textBox1.Text, "admPwd"))
                 {
                     _infoSummary = nowSummary;
-                    admin_base_config.admPwd = textBox1.Text;
+                    admin_config.Instance.admPwd = textBox1.Text;
                     Message.ShowSuccess(@"修改成功！");
                 }
                 else
@@ -192,7 +192,7 @@ namespace 师生双选系统
                 if (_up.UpdateSettingInfo(textBox4.Text, "defaultPwd"))
                 {
                     _infoSummary = nowSummary;
-                    admin_base_config.defaultPwd = textBox4.Text;
+                    admin_config.Instance.defaultPwd = textBox4.Text;
                     Message.ShowSuccess(@"修改成功！");
                 }
                 else
@@ -240,7 +240,7 @@ namespace 师生双选系统
             if (_up.UpdateSettingInfo((comboBox1.SelectedIndex + 1).ToString(), "stuGroupNum"))
             {
                 _infoSummary = nowSummary;
-                admin_base_config.stuGroupNum = comboBox1.SelectedIndex + 1;
+                admin_config.Instance.stuGroupNum = comboBox1.SelectedIndex + 1;
                 Message.ShowSuccess(@"修改成功！");
             }
             else
@@ -266,7 +266,7 @@ namespace 师生双选系统
             if (_up.UpdateSettingInfo((comboBox2.SelectedIndex + 1).ToString(), "stuChooseNum"))
             {
                 _infoSummary = nowSummary;
-                admin_base_config.stuChooseNum = comboBox2.SelectedIndex + 1;
+                admin_config.Instance.stuChooseNum = comboBox2.SelectedIndex + 1;
                 Message.ShowSuccess(@"修改成功！");
             }
             else
@@ -292,7 +292,7 @@ namespace 师生双选系统
             if (_up.UpdateSettingInfo((comboBox4.SelectedIndex + 1).ToString(), "teaChooseNum"))
             {
                 _infoSummary = nowSummary;
-                admin_base_config.teaChooseNum = comboBox4.SelectedIndex + 1;
+                admin_config.Instance.teaChooseNum = comboBox4.SelectedIndex + 1;
                 Message.ShowSuccess(@"修改成功！");
             }
             else
@@ -318,7 +318,7 @@ namespace 师生双选系统
             if (_up.UpdateSettingInfo((comboBox3.SelectedIndex + 1).ToString(), "teaHaveNum"))
             {
                 _infoSummary = nowSummary;
-                admin_base_config.teaHaveNum = comboBox3.SelectedIndex + 1;
+                admin_config.Instance.teaHaveNum = comboBox3.SelectedIndex + 1;
                 Message.ShowSuccess(@"修改成功！");
             }
             else
@@ -344,7 +344,7 @@ namespace 师生双选系统
             if (_up.UpdateSettingInfo(dateTimePicker1.Value.ToString("yyyy-MM-dd"), "stuCloseTime"))
             {
                 _infoSummary = nowSummary;
-                admin_base_config.stuCloseTime = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+                admin_config.Instance.stuCloseTime = dateTimePicker1.Value.ToString("yyyy-MM-dd");
                 Message.ShowSuccess(@"修改成功！");
             }
             else
@@ -370,7 +370,7 @@ namespace 师生双选系统
             if (_up.UpdateSettingInfo(dateTimePicker2.Value.ToString("yyyy-MM-dd"), "teaCloseTime"))
             {
                 _infoSummary = nowSummary;
-                admin_base_config.teaCloseTime = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+                admin_config.Instance.teaCloseTime = dateTimePicker2.Value.ToString("yyyy-MM-dd");
                 Message.ShowSuccess(@"修改成功！");
             }
             else

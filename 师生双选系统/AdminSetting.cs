@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Xml;
 using 师生双选系统.Properties;
 using Message = UI.Message;
+using static System.Configuration.ConfigurationManager;
 
 namespace 师生双选系统
 {
@@ -25,6 +26,16 @@ namespace 师生双选系统
 
         private void AdminSetting_Load(object sender, EventArgs e)
         {
+            comboBox7.Items.AddRange(AppSettings["Grade"].Split(','));
+            comboBox5.Items.AddRange(AppSettings["Speciality"].Split(','));
+            comboBox7.SelectedIndex = 0;
+            comboBox5.SelectedIndex = 0;
+
+            comboBox9.Items.AddRange(AppSettings["Grade"].Split(','));
+            comboBox8.Items.AddRange(AppSettings["Speciality"].Split(','));
+            comboBox9.SelectedIndex = 0;
+            comboBox8.SelectedIndex = 0;
+
             textBox2.Text = admin_base_config.admUser;
             textBox1.Text = admin_base_config.admPwd;
 

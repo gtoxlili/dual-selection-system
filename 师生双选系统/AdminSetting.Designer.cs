@@ -65,6 +65,20 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -331,6 +345,20 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label26);
+            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.comboBox8);
+            this.panel1.Controls.Add(this.label31);
+            this.panel1.Controls.Add(this.label32);
+            this.panel1.Controls.Add(this.comboBox9);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.comboBox5);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.comboBox7);
+            this.panel1.Controls.Add(this.label34);
+            this.panel1.Controls.Add(this.label33);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label20);
             this.panel1.Controls.Add(this.textBox4);
@@ -521,6 +549,146 @@
             this.panel2.Size = new System.Drawing.Size(615, 555);
             this.panel2.TabIndex = 134;
             // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.BackColor = System.Drawing.Color.White;
+            this.label33.Font = new System.Drawing.Font(CustomFont.Font.rPFC.Families[0], 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label33.ForeColor = System.Drawing.Color.Red;
+            this.label33.Location = new System.Drawing.Point(29, 224);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(343, 15);
+            this.label33.TabIndex = 180;
+            this.label33.Text = "( 若此处不对年级专业进行限定，则该设置对所有年级专业生效";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.BackColor = System.Drawing.Color.White;
+            this.label34.Font = new System.Drawing.Font(CustomFont.Font.rPFC.Families[0], 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label34.ForeColor = System.Drawing.Color.Red;
+            this.label34.Location = new System.Drawing.Point(29, 410);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(343, 15);
+            this.label34.TabIndex = 181;
+            this.label34.Text = "( 若此处不对年级专业进行限定，则该设置对所有年级专业生效";
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Silver;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(461, 213);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(120, 1);
+            this.label7.TabIndex = 187;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font(CustomFont.Font.bPFC.Families[0], 8.5F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(415, 194);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 15);
+            this.label8.TabIndex = 186;
+            this.label8.Text = "专业：";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox5.Font = new System.Drawing.Font(CustomFont.Font.rPFC.Families[0], 8.5F);
+            this.comboBox5.Location = new System.Drawing.Point(462, 190);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(120, 22);
+            this.comboBox5.TabIndex = 185;
+            // 
+            // label23
+            // 
+            this.label23.BackColor = System.Drawing.Color.Silver;
+            this.label23.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label23.Location = new System.Drawing.Point(361, 213);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(48, 1);
+            this.label23.TabIndex = 184;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font(CustomFont.Font.bPFC.Families[0], 8.5F, System.Drawing.FontStyle.Bold);
+            this.label24.Location = new System.Drawing.Point(315, 194);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(43, 15);
+            this.label24.TabIndex = 183;
+            this.label24.Text = "年级：";
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox7.Font = new System.Drawing.Font(CustomFont.Font.rPFC.Families[0], 8.5F);
+            this.comboBox7.Location = new System.Drawing.Point(362, 190);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(48, 22);
+            this.comboBox7.TabIndex = 182;
+            // 
+            // label26
+            // 
+            this.label26.BackColor = System.Drawing.Color.Silver;
+            this.label26.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label26.Location = new System.Drawing.Point(461, 401);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(120, 1);
+            this.label26.TabIndex = 193;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font(CustomFont.Font.bPFC.Families[0], 8.5F, System.Drawing.FontStyle.Bold);
+            this.label27.Location = new System.Drawing.Point(415, 382);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(43, 15);
+            this.label27.TabIndex = 192;
+            this.label27.Text = "专业：";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox8.Font = new System.Drawing.Font(CustomFont.Font.rPFC.Families[0], 8.5F);
+            this.comboBox8.Location = new System.Drawing.Point(462, 378);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(120, 22);
+            this.comboBox8.TabIndex = 191;
+            // 
+            // label31
+            // 
+            this.label31.BackColor = System.Drawing.Color.Silver;
+            this.label31.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label31.Location = new System.Drawing.Point(361, 401);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(48, 1);
+            this.label31.TabIndex = 190;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font(CustomFont.Font.bPFC.Families[0], 8.5F, System.Drawing.FontStyle.Bold);
+            this.label32.Location = new System.Drawing.Point(315, 382);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(43, 15);
+            this.label32.TabIndex = 189;
+            this.label32.Text = "年级：";
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox9.Font = new System.Drawing.Font(CustomFont.Font.rPFC.Families[0], 8.5F);
+            this.comboBox9.Location = new System.Drawing.Point(362, 378);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(48, 22);
+            this.comboBox9.TabIndex = 188;
+            // 
             // AdminSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -580,5 +748,19 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox comboBox9;
     }
 }

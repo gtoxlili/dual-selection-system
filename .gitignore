@@ -7,9 +7,12 @@ _ReSharper.*
 
 */**/obj/*
 
-*/**/bin/*/*
-!*/**/bin/*/Database.db
-!*/**/bin/*/UserInfo.xml
+*/**/bin/x64/*
+*/**/bin/x84/*
+!*/**/bin/x64/Database.db
+!*/**/bin/x64/UserInfo.xml
+!*/**/bin/x86/Database.db
+!*/**/bin/x86/UserInfo.xml
 
 *.exe
 *.pdb

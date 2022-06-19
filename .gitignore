@@ -3,10 +3,14 @@ packages
 *.suo
 *.user
 _ReSharper.*
-*/**/obj/Debug
-*/**/obj/Release
+*/**/obj/*
+*/**/bin/*
 *.exe
 *.pdb
 *.manifest
 *.cache
 *.dll
+
+!SQLite.Interop.dll
+!Database.db
+!UserInfo.xml

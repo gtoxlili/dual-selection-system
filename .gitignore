@@ -8,7 +8,7 @@ _ReSharper.*
 */**/obj/*
 
 */**/bin/*
-!*/**/bin/*/*/Database.db
+!*/**/bin/x64/Debug/Database.db
 !*/**/bin/*/*/UserInfo.xml
 
 

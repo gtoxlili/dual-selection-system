@@ -1,8 +1,0 @@
-C:\Users\66403\source\repos\师生双选系统 - 发布\CustomFont\bin\x64\Release\CustomFont.dll
-C:\Users\66403\source\repos\师生双选系统 - 发布\CustomFont\bin\x64\Release\CustomFont.pdb
-C:\Users\66403\source\repos\师生双选系统 - 发布\CustomFont\obj\x64\Release\CustomFont.csproj.AssemblyReference.cache
-C:\Users\66403\source\repos\师生双选系统 - 发布\CustomFont\obj\x64\Release\CustomFont.Properties.Resource.resources
-C:\Users\66403\source\repos\师生双选系统 - 发布\CustomFont\obj\x64\Release\CustomFont.csproj.GenerateResource.cache
-C:\Users\66403\source\repos\师生双选系统 - 发布\CustomFont\obj\x64\Release\CustomFont.csproj.CoreCompileInputs.cache
-C:\Users\66403\source\repos\师生双选系统 - 发布\CustomFont\obj\x64\Release\CustomFont.dll
-C:\Users\66403\source\repos\师生双选系统 - 发布\CustomFont\obj\x64\Release\CustomFont.pdb

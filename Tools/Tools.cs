@@ -141,8 +141,7 @@ namespace Tools
         {
             string strConn;
             
-            // judge fileType is .xls
-            if (fileName.EndsWith(".xls"))
+            if (!Environment.Is64BitProcess)
             {
                 strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + fileName + ";Extended Properties=\"Excel 8.0;HDR=Yes;IMEX=1\"";
             }
@@ -150,6 +149,7 @@ namespace Tools
             {
                 strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + fileName + ";Extended Properties=\"Excel 12.0;HDR=Yes;IMEX=1\"";
             }
+            
             
             DataTable dt = new DataTable();
 

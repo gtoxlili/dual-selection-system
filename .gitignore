@@ -4,13 +4,15 @@ packages
 *.user
 _ReSharper.*
 */**/obj/*
+
 */**/bin/*
+!*/**/bin/Database.db
+!*/**/bin/UserInfo.xml
+
 *.exe
 *.pdb
 *.manifest
 *.cache
-*.dll
 
+*.dll
 !SQLite.Interop.dll
-!Database.db
-!UserInfo.xml

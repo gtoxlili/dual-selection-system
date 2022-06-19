@@ -1,13 +1,15 @@
 packages
+
 .vs
 *.suo
 *.user
 _ReSharper.*
+
 */**/obj/*
 
-*/**/bin/*
-!*/**/bin/Database.db
-!*/**/bin/UserInfo.xml
+*/**/bin/*/*
+!*/**/bin/*/Database.db
+!*/**/bin/*/UserInfo.xml
 
 *.exe
 *.pdb

@@ -139,10 +139,19 @@ namespace Tools
 
         public static DataTable ExecuteDataTable(string fileName)
         {
-            string strConn = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + fileName + ";" +
-                             ";Extended Properties=\"Excel 12.0;HDR=YES;IMEX=1\"";
+            string strConn;
+            
+            // judge fileType is .xls
+            if (fileName.EndsWith(".xls"))
+            {
+                strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + fileName + ";Extended Properties=\"Excel 8.0;HDR=Yes;IMEX=1\"";
+            }
+            else
+            {
+                strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + fileName + ";Extended Properties=\"Excel 12.0;HDR=Yes;IMEX=1\"";
+            }
+            
             DataTable dt = new DataTable();
-
 
             using (OleDbConnection conn = new OleDbConnection(strConn))
             {

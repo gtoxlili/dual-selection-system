@@ -4,5 +4,8 @@
     <Unmanaged64Assemblies>
       SQLite.Interop
     </Unmanaged64Assemblies>
+    <Unmanaged32Assemblies>
+      SQLite.Interop
+    </Unmanaged32Assemblies>
   </Costura>
 </Weavers>

@@ -9,7 +9,6 @@ _ReSharper.*
 
 */**/bin/*
 !*/**/bin/x64/Debug/Database.db
-!*/**/bin/*/*/UserInfo.xml
 
 
 *.exe

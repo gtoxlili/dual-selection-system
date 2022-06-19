@@ -22,24 +22,22 @@ namespace Model
 
         public int s_no { get; set; }
 
-        private volatile static stu_info instance;
-        private static readonly object padlock = new object();
+        private static volatile stu_info _instance;
+        private static readonly object Padlock = new object();
 
         public static stu_info Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance != null) return _instance;
+                lock (Padlock)
                 {
-                    lock (padlock)
+                    if (_instance == null)
                     {
-                        if (instance == null)
-                        {
-                            instance = new stu_info();
-                        }
+                        _instance = new stu_info();
                     }
                 }
-                return instance;
+                return _instance;
             }
         }
     }

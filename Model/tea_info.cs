@@ -19,24 +19,22 @@
         public string direction { get; set; }
 
         // 单例
-        private volatile static tea_info instance;
-        private static readonly object padlock = new object();
+        private static volatile tea_info _instance;
+        private static readonly object Padlock = new object();
 
         public static tea_info Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance != null) return _instance;
+                lock (Padlock)
                 {
-                    lock (padlock)
+                    if (_instance == null)
                     {
-                        if (instance == null)
-                        {
-                            instance = new tea_info();
-                        }
+                        _instance = new tea_info();
                     }
                 }
-                return instance;
+                return _instance;
             }
         }
     }

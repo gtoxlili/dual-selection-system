@@ -5,11 +5,11 @@ packages
 *.user
 _ReSharper.*
 
-*/**/obj/*
+*/**/obj
 
-*/**/bin/*
-!*/**/bin/x64/Debug/Database.db
-
+*/**/bin/*/*/*
+!*/**/bin/*/*/*.db
+!*/**/bin/*/*/UserInfo.xml
 
 *.exe
 *.pdb

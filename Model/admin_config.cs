@@ -24,24 +24,22 @@
 
 
         // 单例
-        private volatile static admin_config instance;
-        private static readonly object padlock = new object();
+        private static volatile admin_config _instance;
+        private static readonly object Padlock = new object();
 
         public static admin_config Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance != null) return _instance;
+                lock (Padlock)
                 {
-                    lock (padlock)
+                    if (_instance == null)
                     {
-                        if (instance == null)
-                        {
-                            instance = new admin_config();
-                        }
+                        _instance = new admin_config();
                     }
                 }
-                return instance;
+                return _instance;
             }
         }
 

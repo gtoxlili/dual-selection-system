@@ -55,7 +55,7 @@ namespace UI
                 Location = new Point(15, 15),
                 TextAlign = ContentAlignment.MiddleLeft,
                 ImageAlign = ContentAlignment.MiddleLeft,
-                Font = new Font(CustomFont.Font.rPFC.Families[0], 10.5F),
+                Font = new Font(CustomFont.Font.RPfc.Families[0], 10.5F),
 
             };
 

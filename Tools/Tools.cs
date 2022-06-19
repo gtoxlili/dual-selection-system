@@ -158,6 +158,7 @@ namespace Tools
                 conn.Open();
                 DataTable dtSheetName =
                     conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                if (dtSheetName == null) return dt;
                 string tableName = dtSheetName.Rows[0]["TABLE_NAME"].ToString().Trim();
 
                 OleDbDataAdapter adapter = new OleDbDataAdapter($@"select * from [{tableName}]", strConn);

@@ -10,20 +10,22 @@ namespace CustomFont
 {
     public static class Font
     {
-        public static PrivateFontCollection rPFC = new PrivateFontCollection();
-        public static PrivateFontCollection bPFC = new PrivateFontCollection();
+        public static PrivateFontCollection RPfc = new PrivateFontCollection();
+        public static PrivateFontCollection BPfc = new PrivateFontCollection();
 
         static Font()
         {
             string path = Application.StartupPath + "//UserInfo.xml";
             if (!File.Exists(path))
+            {
                 SetFont("更纱黑体");
+            }
             else
             {
-                XmlDocument _userInfo = new XmlDocument();
-                _userInfo.Load(path);
-                XmlElement PreferFont = (XmlElement)_userInfo.DocumentElement?.GetElementsByTagName("PreferFont")[0];
-                SetFont(PreferFont.InnerText);
+                XmlDocument userInfo = new XmlDocument();
+                userInfo.Load(path);
+                XmlElement preferFont = (XmlElement)userInfo.DocumentElement?.GetElementsByTagName("PreferFont")[0];
+                if (preferFont != null) SetFont(preferFont.InnerText);
             }
         }
 
@@ -36,24 +38,24 @@ namespace CustomFont
             byte[] rfontData;
             byte[] bfontData;
 
-            if (fontName == "更纱黑体")
+            switch (fontName)
             {
-                rfontData = Resource.更纱黑体_regular;
-                bfontData = Resource.更纱黑体_bold;
-            }
-            else if (fontName == "东竹石体")
-            {
-                rfontData = Resource.东竹石体;
-                bfontData = Resource.东竹石体;
-            }else if (fontName == "霞鹜文楷")
-            {
-                rfontData = Resource.霞鹜文楷_regular;
-                bfontData = Resource.霞鹜文楷_Bold;
-            }
-            else
-            {
-                rfontData = Resource.悠哉字体_Regular;
-                bfontData = Resource.悠哉字体_Bold;
+                case "更纱黑体":
+                    rfontData = Resource.更纱黑体_regular;
+                    bfontData = Resource.更纱黑体_bold;
+                    break;
+                case "东竹石体":
+                    rfontData = Resource.东竹石体;
+                    bfontData = Resource.东竹石体;
+                    break;
+                case "霞鹜文楷":
+                    rfontData = Resource.霞鹜文楷_regular;
+                    bfontData = Resource.霞鹜文楷_Bold;
+                    break;
+                default:
+                    rfontData = Resource.悠哉字体_Regular;
+                    bfontData = Resource.悠哉字体_Bold;
+                    break;
             }
 
             unsafe
@@ -67,12 +69,11 @@ namespace CustomFont
                         uint bFonts = 0;
                         AddFontMemResourceEx((IntPtr)bFontData, (uint)bfontData.Length, IntPtr.Zero, ref bFonts);
 
-                        rPFC.AddMemoryFont((IntPtr)rFontData, rfontData.Length);
-                        bPFC.AddMemoryFont((IntPtr)bFontData, bfontData.Length);
+                        RPfc.AddMemoryFont((IntPtr)rFontData, rfontData.Length);
+                        BPfc.AddMemoryFont((IntPtr)bFontData, bfontData.Length);
                     }
                 }
             }
-
         }
 
         [DllImport("gdi32.dll")]

@@ -740,7 +740,7 @@ namespace JView
                 AutoSize = true
             };
 
-            ComboBox com = new ComboBox
+            ComboBox com = new UI.Combo
             {
                 BackColor = Color.White,
                 DropDownStyle = ComboBoxStyle.DropDownList,

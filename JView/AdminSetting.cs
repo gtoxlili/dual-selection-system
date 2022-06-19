@@ -7,6 +7,7 @@ using System.Xml;
 using Bll;
 using JView.Properties;
 using Model;
+using UI;
 using static System.Configuration.ConfigurationManager;
 using Message = UI.Message;
 
@@ -246,6 +247,7 @@ namespace JView
             {
                 Message.ShowError(@"修改失败！");
             }
+            
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

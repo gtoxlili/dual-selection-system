@@ -1,0 +1,6 @@
+C:\Users\66403\source\repos\师生双选系统 - 发布\Model\bin\x64\Release\Model.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\Model\bin\x64\Release\Model.pdb
+C:\Users\66403\source\repos\师生双选系统 - 发布\Model\obj\x64\Release\Model.csproj.AssemblyReference.cache
+C:\Users\66403\source\repos\师生双选系统 - 发布\Model\obj\x64\Release\Model.csproj.CoreCompileInputs.cache
+C:\Users\66403\source\repos\师生双选系统 - 发布\Model\obj\x64\Release\Model.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\Model\obj\x64\Release\Model.pdb

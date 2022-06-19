@@ -1,0 +1,16 @@
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\Tools.dll.config
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\Tools.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\Tools.pdb
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\EntityFramework.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\EntityFramework.SqlServer.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\System.Data.SQLite.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\System.Data.SQLite.EF6.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\System.Data.SQLite.Linq.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\EntityFramework.xml
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\EntityFramework.SqlServer.xml
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\bin\x86\Release\System.Data.SQLite.xml
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\obj\x86\Release\Tools.csproj.AssemblyReference.cache
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\obj\x86\Release\Tools.csproj.CoreCompileInputs.cache
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\obj\x86\Release\Tools.csproj.CopyComplete
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\obj\x86\Release\Tools.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\Tools\obj\x86\Release\Tools.pdb

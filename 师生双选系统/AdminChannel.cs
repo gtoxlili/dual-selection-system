@@ -531,7 +531,7 @@ namespace 师生双选系统
         private void button3_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = @".xls、.xlsx|*.xls;*.xlsx";
+            ofd.Filter = Environment.Is64BitProcess?@".xls、.xlsx|*.xls;*.xlsx": @".xls|*.xls";
 
             // 将初始路径设置为桌面
             ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);

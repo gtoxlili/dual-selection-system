@@ -1,0 +1,16 @@
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\BLL.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\BLL.pdb
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\DAL.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\Model.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\Tools.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\System.Data.SQLite.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\DAL.pdb
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\Model.pdb
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\Tools.pdb
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\Tools.dll.config
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\bin\x64\Release\System.Data.SQLite.xml
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\obj\x64\Release\BLL.csproj.AssemblyReference.cache
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\obj\x64\Release\BLL.csproj.CoreCompileInputs.cache
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\obj\x64\Release\BLL.csproj.CopyComplete
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\obj\x64\Release\BLL.dll
+C:\Users\66403\source\repos\师生双选系统 - 发布\BLL\obj\x64\Release\BLL.pdb

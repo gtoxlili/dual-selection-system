@@ -353,6 +353,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(909, 561);
+            this.TopMost = true;
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);

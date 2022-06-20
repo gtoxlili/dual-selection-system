@@ -190,6 +190,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(324, 316);
+            this.TopMost = true;
             this.Controls.Add(this.label6);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);

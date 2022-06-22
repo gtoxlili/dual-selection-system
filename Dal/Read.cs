@@ -49,6 +49,21 @@ namespace Dal
             }
         }
 
+        public DataTable GetApprovedList()
+        {
+            const string sql = "SELECT t_name,g_name,group_concat(s_name) as nameArr FROM autodispense_tmp inner join stu_info using(g_id) GROUP BY g_id HAVING state = 1";
+
+            try
+            {
+                DataTable dt = SqLiteHelper.ExecuteDataTable(sql);
+                return dt.Rows.Count > 0 ? dt : null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public DataSet GetAutoDispenseDt()
         {
             const string strSql1 = "SELECT * FROM group_info WHERE t_id IS NULL AND ( c1 != 0 OR c2 != 0 OR c3 != 0 )";

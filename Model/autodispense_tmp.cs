@@ -13,5 +13,7 @@
         public float score { get; set; }
         
         public int state { get; set; }
+
+        public string nameArr { get; set; }
     }
 }

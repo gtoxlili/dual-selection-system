@@ -55,7 +55,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.combo1 = new UI.Combo();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
@@ -195,6 +203,7 @@
             // comboBox2
             // 
             this.comboBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.Font = new System.Drawing.Font(CustomFont.Font.RPfc.Families[0], 10.5F);
             this.comboBox2.Location = new System.Drawing.Point(465, 155);
@@ -224,6 +233,7 @@
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.Font = new System.Drawing.Font(CustomFont.Font.RPfc.Families[0], 10.5F);
             this.comboBox1.Location = new System.Drawing.Point(465, 100);
@@ -363,11 +373,108 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(465, 82);
+            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.combo1);
+            this.panel2.Location = new System.Drawing.Point(448, 82);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(120, 213);
+            this.panel2.Size = new System.Drawing.Size(155, 215);
             this.panel2.TabIndex = 149;
             this.panel2.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Silver;
+            this.label18.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label18.Location = new System.Drawing.Point(19, 45);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(120, 1);
+            this.label18.TabIndex = 146;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font(CustomFont.Font.BPfc.Families[0], 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label19.Location = new System.Drawing.Point(16, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(78, 18);
+            this.label19.TabIndex = 145;
+            this.label19.Text = "信息人员：";
+            // 
+            // combo1
+            // 
+            this.combo1.BackColor = System.Drawing.SystemColors.Window;
+            this.combo1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.combo1.Font = new System.Drawing.Font(CustomFont.Font.RPfc.Families[0], 10.5F);
+            this.combo1.Items.AddRange(new object[] {
+            "待审核",
+            "已匹配"});
+            this.combo1.Location = new System.Drawing.Point(19, 18);
+            this.combo1.Name = "combo1";
+            this.combo1.Size = new System.Drawing.Size(120, 26);
+            this.combo1.TabIndex = 144;
+            this.combo1.SelectedValueChanged += new System.EventHandler(this.combo1_SelectedValueChanged);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font(CustomFont.Font.BPfc.Families[0], 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(17, 72);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(120, 29);
+            this.button3.TabIndex = 148;
+            this.button3.Text = "全部通过";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Red;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font(CustomFont.Font.BPfc.Families[0], 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(17, 111);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(120, 29);
+            this.button5.TabIndex = 149;
+            this.button5.Text = "全部撤销";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.White;
+            this.label20.Font = new System.Drawing.Font(CustomFont.Font.BPfc.Families[0], 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            this.label20.Location = new System.Drawing.Point(282, 82);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(37, 15);
+            this.label20.TabIndex = 150;
+            this.label20.Text = "组员3";
+            this.label20.Visible = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.White;
+            this.label21.Font = new System.Drawing.Font(CustomFont.Font.BPfc.Families[0], 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            this.label21.Location = new System.Drawing.Point(342, 82);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(37, 15);
+            this.label21.TabIndex = 151;
+            this.label21.Text = "组员4";
+            this.label21.Visible = false;
             // 
             // AdmUserInfo
             // 
@@ -375,6 +482,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(615, 555);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
@@ -402,6 +511,8 @@
             this.Text = "AdmUserInfo";
             this.Load += new System.EventHandler(this.AdmUserInfo_Load);
             this.groupBox1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,10 +533,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox1;
@@ -436,5 +545,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel2;
+        private UI.Combo comboBox2;
+        private UI.Combo comboBox1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private UI.Combo combo1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
     }
 }

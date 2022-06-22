@@ -1,9 +1,9 @@
-﻿using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Windows.Forms;
+using Model;
 using static System.Configuration.ConfigurationManager;
 
 namespace JView
@@ -99,6 +99,61 @@ namespace JView
             };
         }
 
+        public AdminPrint(List<autodispense_tmp> autodispenseArr)
+        {
+            InitializeComponent();
+            DefaultSetting();
+            printDocument1.PrintPage += (_, e) =>
+            {
+                _x = e.MarginBounds.Left;
+                _y = e.MarginBounds.Top;
+                string[] itemName = { "组名", "教师名", "组员1", "组员2", "组员3", "组员4" };
+
+                int titleTop = (_y - _titleFont.Height) / 2 + 12;
+
+                e.Graphics.DrawString("队伍信息", _titleFont, Brushes.Black,
+                    e.PageBounds.Width / 2 - 70, titleTop);
+
+                PrintHead(e, itemName);
+
+
+                foreach (autodispense_tmp ar in autodispenseArr)
+                {
+                    _y += _f.Height + 2;
+                    e.Graphics.DrawLine(Pens.Gainsboro, new Point(_x, _y), new Point(e.MarginBounds.Width + _x, _y));
+                    _y += 2;
+                    PrintBody(e, ar);
+                }
+            };
+        }
+
+        private void PrintBody(PrintPageEventArgs e, autodispense_tmp ar)
+        {
+            int xgap = e.MarginBounds.Width / 6;
+            StringFormat format = new StringFormat
+                { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
+
+            string[] nameArr = new string[4];
+            string[] tmpArr = ar.nameArr.Split(',');
+            // 将 values.nameArr.Split(',') 填入 nameArr
+            for (int i = 0; i < tmpArr.Length; i++) nameArr[i] = tmpArr[i];
+
+            e.Graphics.DrawString(ar.g_name, _f, Brushes.Black, _x, _y, format);
+            _x += xgap;
+            e.Graphics.DrawString(ar.t_name, _f, Brushes.Black, _x, _y, format);
+            _x += xgap;
+            e.Graphics.DrawString(nameArr[0], _f, Brushes.Black, _x, _y, format);
+            _x += xgap;
+            e.Graphics.DrawString(nameArr[1], _f, Brushes.Black, _x, _y, format);
+            _x += xgap;
+            e.Graphics.DrawString(nameArr[2], _f, Brushes.Black, _x, _y, format);
+            _x += xgap;
+            e.Graphics.DrawString(nameArr[3], _f, Brushes.Black, _x, _y, format);
+            _x += xgap;
+
+            _x = e.MarginBounds.Left;
+        }
+
         private void DefaultSetting()
         {
             // setting printDocument Paper to A5
@@ -111,7 +166,7 @@ namespace JView
         {
             int xgap = e.MarginBounds.Width / itemName.Length;
             StringFormat format = new StringFormat
-            { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
+                { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
 
             foreach (string t in itemName)
             {
@@ -126,7 +181,7 @@ namespace JView
         {
             int xgap = e.MarginBounds.Width / 5;
             StringFormat format = new StringFormat
-            { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
+                { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
 
             e.Graphics.DrawString(stu.s_id.ToString(), _f, Brushes.Black, _x, _y, format);
             _x += xgap;
@@ -146,7 +201,7 @@ namespace JView
         {
             int xgap = e.MarginBounds.Width / 4;
             StringFormat format = new StringFormat
-            { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
+                { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
 
             e.Graphics.DrawString(stu.g_id.ToString(), _f, Brushes.Black, _x, _y, format);
             _x += xgap;
@@ -164,7 +219,7 @@ namespace JView
         {
             int xgap = e.MarginBounds.Width / 5;
             StringFormat format = new StringFormat
-            { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
+                { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
 
             e.Graphics.DrawString(stu.t_id.ToString(), _f, Brushes.Black, _x, _y, format);
             _x += xgap;
@@ -201,7 +256,7 @@ namespace JView
         private void button2_Click(object sender, EventArgs e)
         {
             printPreviewDialog1.Document = printDocument1;
-
+            printPreviewDialog1.TopMost = true;
             if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
                 printDocument1.Print();
         }

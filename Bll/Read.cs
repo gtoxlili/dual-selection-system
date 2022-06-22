@@ -128,6 +128,12 @@ namespace Bll
             return _convertor.ConvertToEntity(dt);
         }
 
+        public List<autodispense_tmp> GetApprovedList()
+        {
+            DataTable dt = _fi.GetApprovedList();
+            return new DbTableConvertor<autodispense_tmp>().ConvertToList(dt);
+        }
+
         public T GetEntityValue(string extra)
         {
             DataTable dt = _fi.GetEntityValue(extra, typeof(T).Name.ToLower());

@@ -1,11 +1,11 @@
-﻿using Bll;
-using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
+using Bll;
 using JView.Properties;
+using Model;
 using static System.Configuration.ConfigurationManager;
 using Message = UI.Message;
 
@@ -65,6 +65,7 @@ namespace JView
             _pageIndex = 1;
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
+            combo1.SelectedIndex = 0;
             textBox1.Text = "";
 
             switch (_infoTabindex)
@@ -110,6 +111,9 @@ namespace JView
             };
 
             panel2.Visible = false;
+            button2.Visible = true;
+            label20.Visible = false;
+            label21.Visible = false;
 
             switch (tabIndex)
             {
@@ -162,6 +166,7 @@ namespace JView
                     label6.Text = @"组名";
                     label8.Text = @"年级";
                     label9.Text = @"专业";
+
                     panel1.Controls.Add(CreateListBox(_groupArrayList, AddArrayList));
                     panel3.Controls.Add(CreatePagination());
                     break;
@@ -178,11 +183,15 @@ namespace JView
                     Tool.Close(panel1);
                     Tool.Close(panel3);
 
-                    label7.Text = @"组名";
-                    label6.Text = @"教师名";
+                    label6.Text = @"组名";
+                    label7.Text = @"教师名";
                     label8.Text = @"匹配分";
                     label9.Text = @"状态";
+                    button2.Visible = false;
                     panel2.Visible = true;
+                    button3.Visible = true;
+                    button5.Visible = true;
+
                     panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
                     panel3.Controls.Add(CreatePagination());
                     break;
@@ -228,6 +237,7 @@ namespace JView
             void Clickfunc(object sender, EventArgs e)
             {
                 Label l = (Label)sender;
+
                 switch (l.Text)
                 {
                     case "<":
@@ -237,11 +247,11 @@ namespace JView
                         _pageIndex++;
                         break;
                     default:
-                        {
-                            if (_pageIndex == Convert.ToInt32(l.Text)) return;
-                            _pageIndex = Convert.ToInt32(l.Text);
-                            break;
-                        }
+                    {
+                        if (_pageIndex == Convert.ToInt32(l.Text)) return;
+                        _pageIndex = Convert.ToInt32(l.Text);
+                        break;
+                    }
                 }
 
                 switch (_infoTabindex)
@@ -276,8 +286,6 @@ namespace JView
                                 $@"state = 0 limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
 
                         Tool.Close(panel1);
-
-
                         panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
                         break;
                 }
@@ -662,7 +670,7 @@ namespace JView
             Label i4 = new Label();
             Label i5 = new Label();
             Label i6 = new Label();
-            
+
             void Ml(object sender, EventArgs e)
             {
                 p.BackColor = Color.White;
@@ -700,76 +708,129 @@ namespace JView
             i3.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
             i3.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
 
-            i4.AutoSize = true;
-            i4.BackColor = Color.Transparent;
-            i4.Font = new Font(CustomFont.Font.BPfc.Families[0], 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            i4.ForeColor = Color.FromArgb(96, 98, 102);
-            i4.Location = new Point(144, 10);
-            i4.Text = values.score.ToString(CultureInfo.InvariantCulture);
-            i4.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
-            i4.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
 
-            i5.AutoSize = true;
-            i5.BackColor = Color.Transparent;
-            i5.Font = new Font(CustomFont.Font.BPfc.Families[0], 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            i5.ForeColor = Color.FromArgb(96, 98, 102);
-            i5.Location = new Point(197, 10);
-            i5.Text = values.state.ToString() == "0" ? "未审核" : "已审核";
-            i5.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
-            i5.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
-
-            i1.Cursor = Cursors.Hand;
-            i1.BackColor = Color.Transparent;
-            i1.Size = new Size(16, 16);
-            i1.Location = new Point(350, 10);
-            i1.Image = ReturnRandomColor(Convert.ToInt32(values.score), Resources.确定);
-            i1.ImageAlign = ContentAlignment.MiddleCenter;
-            i1.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
-            i1.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
-            i1.Click += (sender, e) =>
+            if (combo1.SelectedIndex == 0)
             {
-                if (new Update().DispenseOkAudit(values.g_id))
-                    Message.ShowSuccess("变更成功");
+                i1.Cursor = Cursors.Hand;
+                i1.BackColor = Color.Transparent;
+                i1.Size = new Size(16, 16);
+                i1.Location = new Point(350, 10);
+                i1.Image = ReturnRandomColor(Convert.ToInt32(values.score), Resources.确定);
+                i1.ImageAlign = ContentAlignment.MiddleCenter;
+                i1.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
+                i1.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
+                i1.Click += (sender, e) =>
+                {
+                    if (new Update().DispenseOkAudit(values.g_id))
+                        Message.ShowSuccess("变更成功");
 
-                _autodispenseList =
-                    _autodispenseFunc.GetDbContent(
-                        $@"state = 0 limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
+                    _autodispenseList =
+                        _autodispenseFunc.GetDbContent(
+                            $@"state = 0 limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
 
-                Tool.Close(panel1);
+                    Tool.Close(panel1);
 
 
-                panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
-            };
+                    panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
+                };
 
-            i6.Cursor = Cursors.Hand;
-            i6.BackColor = Color.Transparent;
-            i6.Size = new Size(16, 16);
-            i6.Location = new Point(320, 10);
-            i6.Image = ReturnRandomColor(Convert.ToInt32(values.score), Resources.关闭);
-            i6.ImageAlign = ContentAlignment.MiddleCenter;
-            i6.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
-            i6.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
-            i6.Click += (sender, e) =>
+                i6.Cursor = Cursors.Hand;
+                i6.BackColor = Color.Transparent;
+                i6.Size = new Size(16, 16);
+                i6.Location = new Point(320, 10);
+                i6.Image = ReturnRandomColor(Convert.ToInt32(values.score), Resources.关闭);
+                i6.ImageAlign = ContentAlignment.MiddleCenter;
+                i6.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
+                i6.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
+                i6.Click += (sender, e) =>
+                {
+                    if (new Update().DispenseDelAudit(values.g_id))
+                        Message.ShowSuccess("删除成功");
+
+                    _autodispenseList =
+                        _autodispenseFunc.GetDbContent(
+                            $@"state = 0 limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
+
+                    Tool.Close(panel1);
+                    panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
+                };
+
+                i4.AutoSize = true;
+                i4.BackColor = Color.Transparent;
+                i4.Font = new Font(CustomFont.Font.BPfc.Families[0], 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                i4.ForeColor = Color.FromArgb(96, 98, 102);
+                i4.Location = new Point(144, 10);
+                i4.Text = values.score.ToString(CultureInfo.InvariantCulture);
+                i4.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
+                i4.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
+
+                i5.AutoSize = true;
+                i5.BackColor = Color.Transparent;
+                i5.Font = new Font(CustomFont.Font.BPfc.Families[0], 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                i5.ForeColor = Color.FromArgb(96, 98, 102);
+                i5.Location = new Point(197, 10);
+                i5.Text = values.state.ToString() == "0" ? "未审核" : "已审核";
+                i5.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
+                i5.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
+
+                p.Controls.Add(i1);
+                p.Controls.Add(i6);
+            }
+            else
             {
-                if (new Update().DispenseDelAudit(values.g_id))
-                    Message.ShowSuccess("删除成功");
-                
-                _autodispenseList =
-                    _autodispenseFunc.GetDbContent(
-                        $@"state = 0 limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
+                Label i7 = new Label();
+                Label i8 = new Label();
+                string[] nameArr = new string[4];
+                string[] tmpArr = values.nameArr.Split(',');
+                // 将 values.nameArr.Split(',') 填入 nameArr
+                for (int i = 0; i < tmpArr.Length; i++) nameArr[i] = tmpArr[i];
 
-                Tool.Close(panel1);
-                panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
-                
-            };
+                i4.AutoSize = true;
+                i4.BackColor = Color.Transparent;
+                i4.Font = new Font(CustomFont.Font.BPfc.Families[0], 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                i4.ForeColor = Color.FromArgb(96, 98, 102);
+                i4.Location = new Point(142, 10);
+                i4.Text = nameArr[0];
+                i4.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
+                i4.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
 
-            p.Controls.Add(i1);
-            p.Controls.Add(i2);
-            p.Controls.Add(i3);
+                i5.AutoSize = true;
+                i5.BackColor = Color.Transparent;
+                i5.Font = new Font(CustomFont.Font.BPfc.Families[0], 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                i5.ForeColor = Color.FromArgb(96, 98, 102);
+                i5.Location = new Point(195, 10);
+                i5.Text = nameArr[1];
+                i5.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
+                i5.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
+
+                i7.AutoSize = true;
+                i7.BackColor = Color.Transparent;
+                i7.Font = new Font(CustomFont.Font.BPfc.Families[0], 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                i7.ForeColor = Color.FromArgb(96, 98, 102);
+                i7.Location = new Point(250, 10);
+                i7.Text = nameArr[2];
+                i7.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
+                i7.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
+
+                i8.AutoSize = true;
+                i8.BackColor = Color.Transparent;
+                i8.Font = new Font(CustomFont.Font.BPfc.Families[0], 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                i8.ForeColor = Color.FromArgb(96, 98, 102);
+                i8.Location = new Point(310, 10);
+                i8.Text = nameArr[3];
+                i8.MouseEnter += new EventHandler((Action<object, EventArgs>)Me);
+                i8.MouseLeave += new EventHandler((Action<object, EventArgs>)Ml);
+
+                p.Controls.Add(i7);
+                p.Controls.Add(i8);
+            }
+
             p.Controls.Add(i4);
             p.Controls.Add(i5);
-            p.Controls.Add(i6);
-            
+            p.Controls.Add(i2);
+            p.Controls.Add(i3);
+
+
             p.Controls.Add(divider);
 
             return p;
@@ -792,13 +853,13 @@ namespace JView
             int col = i % 6;
 
             for (int x = 0; x < img.Width; x++)
-                for (int y = 0; y < img.Height; y++)
-                {
-                    int alp = img.GetPixel(x, y).A;
-                    if (alp == 0)
-                        continue;
-                    img.SetPixel(x, y, Color.FromArgb(alp, co[col, 0], co[col, 1], co[col, 2]));
-                }
+            for (int y = 0; y < img.Height; y++)
+            {
+                int alp = img.GetPixel(x, y).A;
+                if (alp == 0)
+                    continue;
+                img.SetPixel(x, y, Color.FromArgb(alp, co[col, 0], co[col, 1], co[col, 2]));
+            }
 
             return img;
         }
@@ -877,7 +938,95 @@ namespace JView
                 case 2:
                     new AdminPrint(_groupArrayList).Show();
                     break;
+                case 3:
+                    new AdminPrint(_autodispenseList).Show();
+                    break;
             }
+        }
+
+        private void combo1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (!combo1.Focused)
+                return;
+            switch (combo1.SelectedIndex)
+            {
+                case 0:
+                    button3.Visible = true;
+                    button5.Visible = true;
+                    button2.Visible = false;
+                    label20.Visible = false;
+                    label21.Visible = false;
+                    label8.Text = @"匹配分";
+                    label9.Text = @"状态";
+
+                    _count = (int)(long)_autodispenseFunc.GetOnlyContent("state = 0", "count(*)");
+                    _autodispenseList =
+                        _autodispenseFunc.GetDbContent(
+                            $@"state = 0 limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
+
+                    Tool.Close(panel1);
+                    Tool.Close(panel3);
+
+                    panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
+                    panel3.Controls.Add(CreatePagination());
+                    break;
+                case 1:
+                    button3.Visible = false;
+                    button5.Visible = false;
+                    button2.Visible = true;
+                    label8.Text = @"组员1";
+                    label9.Text = @"组员2";
+                    label20.Visible = true;
+                    label21.Visible = true;
+
+                    _count = (int)(long)_autodispenseFunc.GetOnlyContent("state = 1", "count(*)");
+
+                    _autodispenseList =
+                        _autodispenseFunc.GetApprovedList();
+
+                    Tool.Close(panel1);
+                    Tool.Close(panel3);
+
+                    panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
+                    panel3.Controls.Add(CreatePagination());
+                    break;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            List<autodispense_tmp> tmpautodispenseList = _autodispenseFunc.GetDbContent(
+                @"state = 0");
+            Update func = new Update();
+
+            foreach (autodispense_tmp values in tmpautodispenseList) func.DispenseOkAudit(values.g_id);
+
+
+            Message.ShowSuccess($@"{tmpautodispenseList.Count} 条记录变更成功");
+            _autodispenseList =
+                _autodispenseFunc.GetDbContent(
+                    $@"state = 0 limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
+            Tool.Close(panel1);
+
+            panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            List<autodispense_tmp> tmpautodispenseList = _autodispenseFunc.GetDbContent(
+                @"state = 0");
+            Update func = new Update();
+
+            foreach (autodispense_tmp values in tmpautodispenseList) func.DispenseDelAudit(values.g_id);
+
+
+            Message.ShowSuccess($@"{tmpautodispenseList.Count} 条记录删除成功");
+            _autodispenseList =
+                _autodispenseFunc.GetDbContent(
+                    $@"state = 0 limit {PageSize} offset {(_pageIndex - 1) * PageSize}");
+            Tool.Close(panel1);
+
+            panel1.Controls.Add(CreateListBox(_autodispenseList, AddArrayList));
         }
     }
 }
